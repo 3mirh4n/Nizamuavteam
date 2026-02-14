@@ -1,0 +1,84 @@
+/* Nizamuv Team Özel Stilleri */
+:root {
+    /* Logodaki Ana Renk */
+    --nizam-teal: #2A9D8F;
+    /* Parlama efekti için yarı saydam renk */
+    --nizam-teal-glow: rgba(42, 157, 143, 0.4);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    /* CSS yüklenene kadar görünecek arka plan */
+    background-color: #020617;
+    margin: 0; /* Tarayıcı varsayılan boşluklarını sıfırla */
+}
+
+/* Pürüzsüz Arka Plan Katmanları */
+.bg-layer {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* Geçiş süresini 1 saniye yaparak daha da yumuşattık */
+    transition: opacity 1s ease-in-out;
+    pointer-events: none;
+}
+
+/* Katman 1: Derin Lacivert (Başlangıç) */
+#bg-primary {
+    z-index: -2;
+    /* Daha geniş ve derin bir gradyan */
+    background: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 80%);
+}
+
+/* Katman 2: Koyu Nizam Yeşili (Scroll ile Gelen) */
+#bg-secondary {
+    z-index: -1;
+    opacity: 0; /* JS ile kontrol edilecek */
+    /* Logodaki renge uygun, derin bir gradyan */
+    background: radial-gradient(circle at 50% 50%, #064e3b 0%, #020617 80%);
+}
+
+/* YENİLENMİŞ CAM EFEKTİ (Sorunu Çözen Kısım) */
+.glass {
+    /* Kartın arka planını çok daha koyu ve şeffaf yaptık.
+       Böylece arkadaki renkleri daha iyi yansıtacak. */
+    background: rgba(2, 6, 23, 0.6);
+    /* Bulanıklık efektini artırdık */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px); /* Safari desteği */
+    /* Çerçeveyi daha ince ve zarif yaptık */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Hover efektleri için geçişler */
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Kartın üzerine gelince (Hover) */
+.glass:hover {
+    /* Çerçeveyi Nizam Turkuazı yap */
+    border-color: var(--nizam-teal);
+    /* Hafifçe yukarı kaldır */
+    transform: translateY(-5px);
+    /* İçeriden hafif bir parlama ekle */
+    box-shadow: inset 0 0 20px rgba(42, 157, 143, 0.1);
+}
+
+/* Profil Fotoğrafı Çerçeveleri */
+.profile-ring {
+    border: 2px solid var(--nizam-teal-glow);
+    transition: all 0.3s ease;
+}
+.profile-ring:hover {
+    border-color: var(--nizam-teal);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--nizam-teal-glow);
+}
+
+/* Metin Parlama Efekti (Hero başlığı için) */
+.text-glow {
+    text-shadow: 0 0 20px var(--nizam-teal-glow);
+}
+
+/* Yardımcı Sınıflar */
+.text-nizam-teal { color: var(--nizam-teal); }
+.bg-nizam-teal { background-color: var(--nizam-teal); }
