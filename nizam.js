@@ -28,7 +28,7 @@ window.addEventListener('scroll', () => {
 // Geri Sayım Sistemi
 function startCountdown() {
     // Tahmini TEKNOFEST Başlangıç Tarihi: 30 Ağustos 2026
-    const targetDate = new Date("Aug 30, 2026 09:00:00").getTime();
+    const targetDate = new Date(2026, 7, 30, 9, 0, 0).getTime();
 
     const updateTimer = setInterval(() => {
         const now = new Date().getTime();
@@ -60,3 +60,4 @@ function startCountdown() {
 
 // Sayacı başlat
 startCountdown();
+
